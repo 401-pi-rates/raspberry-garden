@@ -1,0 +1,16 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+psychopg2-binary = "*"
+django = "*"
+coverage = "*"
+django-registration = "*"
+pillow = "*"
+
+[requires]
+python_version = "3.6"
