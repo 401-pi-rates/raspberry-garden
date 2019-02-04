@@ -7,3 +7,11 @@ from django.contrib.auth.decorators import login_required
 def home_view(request):
     """To control views for the project django_lender."""
     return render(request, 'generic/home.html', {'message': ''})
+
+
+@login_required
+def weekly_view(request):
+    """To control views for the project django_lender."""
+    return render(request, 'generic/weekly.html', {'message': ''})
+
+
