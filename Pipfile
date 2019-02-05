@@ -11,6 +11,8 @@ django = "*"
 coverage = "*"
 django-registration = "*"
 pillow = "*"
+djangorestframework = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.6"
