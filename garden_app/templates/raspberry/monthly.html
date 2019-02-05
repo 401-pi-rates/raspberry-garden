@@ -1,0 +1,31 @@
+{% extends 'generic/base.html' %}
+
+{% block title %}Monthly{% endblock %}
+
+{% block content %}
+
+<h3>Monthly Trend</h3>
+<div>
+  <h4>This will be made into a graph...</h4>
+  {% for temperature in temperatures %}
+    <h4>{{ temperature.date_added }} ({{ temperature.temperature }})</h4>
+  {% endfor %}
+
+</div>
+
+
+<div>
+  <h3>Photo: </h3>
+  <p> here is the photo</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

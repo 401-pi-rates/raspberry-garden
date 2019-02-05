@@ -10,26 +10,18 @@
   <table>
     <tr>
       <th> </th>
-      <th> Sunday </th>
-      <th> Monday </th>
-      <th> Tuesday </th>
-      <th> Wednesday </th>
-      <th> Thursday </th>
-      <th> Friday </th>
-      <th> Saturday </th>
+      {% for temperature in temperatures %}
+        <th>{{ temperature.date_added }}</th>
+      {% endfor %}
     </tr>
     <tr>
-      <th> Temperature </th>
-      <th> data </th>
-      <th> data </th>
-      <th> data </th>
-      <th> data </th>
-      <th> data </th>
-      <th> data </th>
-      <th> data </th>
+      <th> Temp (F°)</th>
+      {% for temperature in temperatures %}
+        <th>{{ temperature.temperature }}</th>
+      {% endfor %}
     </tr>
     <tr>
-      <th> Water Level </th>
+      <th> Water Level (CM) </th>
       <th> data </th>
       <th> data </th>
       <th> data </th>
