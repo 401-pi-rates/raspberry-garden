@@ -1,0 +1,51 @@
+{% extends 'generic/base.html' %}
+
+{% block title %}Weekly{% endblock %}
+
+{% block content %}
+
+<h3>Weekly Trend</h3>
+<div>
+
+  <table>
+    <tr>
+      <th> </th>
+      {% for temperature in temperatures %}
+        <th>{{ temperature.date_added }}</th>
+      {% endfor %}
+    </tr>
+    <tr>
+      <th> Temp (F°)</th>
+      {% for temperature in temperatures %}
+        <th>{{ temperature.temperature }}</th>
+      {% endfor %}
+    </tr>
+    <tr>
+      <th> Water Level (CM) </th>
+      <th> data </th>
+      <th> data </th>
+      <th> data </th>
+      <th> data </th>
+      <th> data </th>
+      <th> data </th>
+      <th> data </th>
+    </tr>
+  </table>
+</div>
+
+
+<div>
+  <h3>Photo: </h3>
+  <p> here is the photo</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
