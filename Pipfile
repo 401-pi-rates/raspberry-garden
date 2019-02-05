@@ -6,11 +6,12 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-psychopg2-binary = "*"
 django = "*"
 coverage = "*"
 django-registration = "*"
 pillow = "*"
+psycopg2-binary = "*"
+docker = "*"
 
 [requires]
 python_version = "3.6"
