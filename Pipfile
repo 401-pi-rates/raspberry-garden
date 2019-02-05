@@ -10,8 +10,13 @@ django = "*"
 coverage = "*"
 django-registration = "*"
 pillow = "*"
+
 psycopg2-binary = "*"
 docker = "*"
+
+djangorestframework = "*"
+django-cors-headers = "*"
+
 
 [requires]
 python_version = "3.6"
