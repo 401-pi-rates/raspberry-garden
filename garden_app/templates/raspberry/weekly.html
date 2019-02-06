@@ -9,7 +9,7 @@
 
   <table>
     <tr>
-      <th> </th>
+      <th><h4> Time </h4></th>
       {% for temperature in temperatures %}
         <th><h4>{{ temperature.date_added }}</h4></th>
       {% endfor %}
@@ -20,16 +20,20 @@
         <th><h4>{{ temperature.temperature }}</h4></th>
       {% endfor %}
     </tr>
+
     <tr>
-      <th> <h4>Water Level (CM) </h4></th>
-      <th> <h4> data </h4></th>
-      <th> <h4> data </h4></th>
-      <th> <h4> data </h4></th>
-      <th> <h4> data </h4></th>
-      <th> <h4> data </h4></th>
-      <th> <h4> data </h4></th>
-      <th> <h4> data </h4></th>
+      <th><h4> Time </h4></th>
+      {% for result in waterlevel %}
+        <th><h4>{{ result.time_stamp }}</h4></th>
+      {% endfor %}
     </tr>
+    <tr>
+      <th> <h4> Water Level (CM) </h4></th>
+      {% for result in waterlevel %}
+        <th><h4>{{ result.has_moisture }}</h4></th>
+      {% endfor %}
+    </tr>
+
   </table>
 </div>
 

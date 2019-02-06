@@ -1,6 +1,6 @@
 """This module contains serializer to be used for api views."""
 from django.contrib.auth.models import User
-from garden_app.models import Temperature, WaterLevel
+from garden_app.models import Temperature
 from rest_framework import serializers
 from .models import SoilMoisture
 
