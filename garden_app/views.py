@@ -46,7 +46,6 @@ def weekly_view(request):
         'waterlevel': water_list,
     }
 
-
     return render(request, 'raspberry/weekly.html', context)
 
 
