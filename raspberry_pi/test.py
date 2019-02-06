@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import requests
 
 def button_callback(channel):
-	URL = "http://ec2-52-38-69-34.us-west-2.compute.amazonaws.com:8000/api/v1/test"
+	URL = "http://ec2-52-38-69-34.us-west-2.compute.amazonaws.com:80/api/v1/test"
 	print("Button was pushed!")
 	DATA = {'has_moisture': True}
 	r = requests.post(url = URL, data = DATA)
