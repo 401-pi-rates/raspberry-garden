@@ -2,7 +2,7 @@
 from django.contrib.auth.models import User
 from garden_app.models import Temperature, WaterLevel
 from rest_framework import serializers
-from .models import Test
+from .models import SoilMoisture
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -26,14 +26,14 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
 
-class TestSerializer(serializers.ModelSerializer):
+class SoilMoistureSerializer(serializers.ModelSerializer):
     """
     """
     class Meta:
         """
         """
-        model = Test
-        fields = ('has_moisture',)
+        model = SoilMoisture
+        fields = ('has_moisture', 'time_stamp')
 
 
 # class TemperatureSerializer(serializers.HyperlinkedModelSerializer):
