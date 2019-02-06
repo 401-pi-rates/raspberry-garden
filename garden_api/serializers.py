@@ -1,7 +1,8 @@
 """This module contains serializer to be used for api views."""
 from django.contrib.auth.models import User
-from garden_app.models import Temperature, WaterLevel
+from garden_app.models import Temperature
 from rest_framework import serializers
+from .models import SoilMoisture
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -25,25 +26,35 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
 
-class TemperatureSerializer(serializers.HyperlinkedModelSerializer):
-    """To serialize the fields in Temperature model."""
-    # owner is the user name in database:
-    owner = serializers.ReadOnlyField(source='user.username')
-
-    # user will be something like "http://localhost:8000/api/v1/user/1":
-    user = serializers.HyperlinkedRelatedField(view_name='user-detail', read_only=True)
-
+class SoilMoistureSerializer(serializers.ModelSerializer):
+    """
+    """
     class Meta:
-        model = Temperature
-        fields = ('owner', 'user', 'temperature', 'date_added')
+        """
+        """
+        model = SoilMoisture
+        fields = ('has_moisture', 'time_stamp')
 
 
-class WaterLevelSerializer(serializers.HyperlinkedModelSerializer):
-    """To serialize the fields in WaterLevel model."""
-    owner = serializers.ReadOnlyField(source='user.username')
+# class TemperatureSerializer(serializers.HyperlinkedModelSerializer):
+#     """To serialize the fields in Temperature model."""
+#     # owner is the user name in database:
+#     owner = serializers.ReadOnlyField(source='user.username')
 
-    user = serializers.HyperlinkedRelatedField(view_name='user-detail', read_only=True)
+#     # user will be something like "http://localhost:8000/api/v1/user/1":
+#     user = serializers.HyperlinkedRelatedField(view_name='user-detail', read_only=True)
 
-    class Meta:
-        model = WaterLevel
-        fields = ('owner', 'user', 'water', 'date_added')
+#     class Meta:
+#         model = Temperature
+#         fields = ('owner', 'user', 'temperature', 'date_added')
+
+
+# class WaterLevelSerializer(serializers.HyperlinkedModelSerializer):
+#     """To serialize the fields in WaterLevel model."""
+#     owner = serializers.ReadOnlyField(source='user.username')
+
+#     user = serializers.HyperlinkedRelatedField(view_name='user-detail', read_only=True)
+
+#     class Meta:
+#         model = WaterLevel
+#         fields = ('owner', 'user', 'water', 'date_added')
