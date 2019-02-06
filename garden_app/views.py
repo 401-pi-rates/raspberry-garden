@@ -3,6 +3,10 @@ from garden_api.models import SoilMoisture
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_list_or_404, get_object_or_404
 
+import bokeh.plotting as bk
+from bokeh.embed import components
+from bokeh.layouts import gridplot
+from bokeh.models import HoverTool, Label, BoxZoomTool, PanTool, ZoomInTool, ZoomOutTool, ResetTool
 
 @login_required
 def weekly_view(request):
@@ -52,8 +56,27 @@ def weekly_view(request):
 @login_required
 def monthly_view(request):
     """To render monthly_view with its content."""
+
+
+
+    # PLOTTING THE CHART
+    p1 = bk.figure(title=f'Temperature', toolbar_location='above')
+    p1.grid.grid_line_alpha = 0.3
+    p1.xaxis.axis_label = 'Date'
+    p1.yaxis.axis_label = 'Temperature'
+
+    # CHART LAYOUT
+    p1.line([1, 2, 3], [30, 31, 32], color='red', legend=f'Temperature')
+
+    p1.legend.location = "top_left"
+
+    script, div = components(p1)
+
     context = {
-        'temperatures': get_list_or_404(Temperature)
+        'temperatures': get_list_or_404(Temperature),
+        'foo': 'is foo',
+        'the_script': script,
+        'the_div': div,
     }
 
     return render(request, 'raspberry/monthly.html', context)
