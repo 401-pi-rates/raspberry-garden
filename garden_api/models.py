@@ -9,7 +9,7 @@ class SoilMoisture(models.Model):
 
 
     def __repr__(self):
-        return '{}'.format(self.name)
+        return '{}'.format(self.time_stamp)
 
     def __str__(self):
-        return '{}'.format(self.name)
+        return '{}'.format(self.has_moisture)

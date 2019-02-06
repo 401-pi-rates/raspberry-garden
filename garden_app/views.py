@@ -1,4 +1,5 @@
 from .models import Temperature
+from garden_api.models import SoilMoisture
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_list_or_404, get_object_or_404
 
@@ -7,7 +8,8 @@ from django.shortcuts import render, get_list_or_404, get_object_or_404
 def weekly_view(request):
     """To render weekly_view with its content."""
     context = {
-        'temperatures': get_list_or_404(Temperature)
+        'temperatures': get_list_or_404(Temperature),
+        'waterlevel': get_list_or_404(SoilMoisture),
     }
 
     # context = {
