@@ -10,6 +10,9 @@ def weekly_view(request):
         'temperatures': get_list_or_404(Temperature)
     }
 
+    # context = {
+    #     'temperatures': [{'has_moisture': 'true', 'date': 'Feb 5'}]
+    # }
     return render(request, 'raspberry/weekly.html', context)
 
 
