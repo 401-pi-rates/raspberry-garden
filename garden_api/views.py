@@ -1,7 +1,7 @@
 """This module contains views based on rest framework."""
 from rest_framework.authentication import TokenAuthentication
 from rest_framework import generics
-from .serializers import UserSerializer, TestSerializer, User, Test
+from .serializers import UserSerializer, SoilMoistureSerializer, User, SoilMoisture
 
 
 class RegisterApiView(generics.CreateAPIView):
@@ -20,15 +20,15 @@ class UserApiView(generics.RetrieveAPIView):
         return User.objects.filter(id=self.kwargs['pk'])
 
 
-class TestApiView(generics.CreateAPIView):
-    serializer_class = TestSerializer
+class SoilMoistureApiView(generics.CreateAPIView):
+    serializer_class = SoilMoistureSerializer
 
 
-class TestDetailApiView(generics.RetrieveAPIView):
-    serializer_class = TestSerializer
+class SoilMoistureDetailApiView(generics.RetrieveAPIView):
+    serializer_class = SoilMoistureSerializer
 
     def get_queryset(self):
-        return Test.objects.filter()
+        return SoilMoisture.objects.filter()
 
 # class CurrentApiView(generics.ListCreateAPIView):
 #     """To set up current api view."""
