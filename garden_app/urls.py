@@ -4,6 +4,6 @@ from .views import weekly_view, monthly_view
 
 
 urlpatterns = [
-    path('/weekly', weekly_view, name='weekly'),
-    path('/monthly', monthly_view, name='monthly'),
+    path('weekly', weekly_view, name='weekly'),
+    path('monthly', monthly_view, name='monthly'),
 ]
