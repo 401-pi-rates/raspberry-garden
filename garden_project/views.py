@@ -21,5 +21,4 @@ def home_view(request):
         # 'waterlevel': get_list_or_404(SoilMoisture)[-1],
         'waterlevel': read,
     }
-
     return render(request, 'generic/home.html', context)

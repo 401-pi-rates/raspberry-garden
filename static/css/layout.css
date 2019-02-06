@@ -93,6 +93,22 @@ h4{
     font-family: 'Indie Flower', cursive;
 }
 
+table{
+    border: 1px solid black;
+}
+
+th, td{
+    border: 1px solid black;
+    width: 120px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+
+
+
+
+
 
 /* Desktop view: */
 @media (min-width: 500px) {
