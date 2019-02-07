@@ -3,6 +3,10 @@ from garden_api.models import SoilMoisture
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_list_or_404, get_object_or_404
 
+import bokeh.plotting as bk
+from bokeh.embed import components
+from bokeh.layouts import gridplot
+from bokeh.models import HoverTool, Label, BoxZoomTool, PanTool, ZoomInTool, ZoomOutTool, ResetTool
 
 @login_required
 def weekly_view(request):
@@ -52,8 +56,40 @@ def weekly_view(request):
 @login_required
 def monthly_view(request):
     """To render monthly_view with its content."""
+
+    # To populate temp_date and temp_read:
+    temps = Temperature.objects.all()
+    temp_date = []
+    temp_read = []
+    i = 0
+    for item in temps:
+        if item.date_added.date() not in temp_date and i < 31:
+            temp_date.append(item.date_added.date())
+            temp_read.append(item.temperature)
+            i += 1
+
+    # PLOTTING THE CHART
+    p1 = bk.figure(title=f'Temperature', x_axis_type="datetime", toolbar_location='above', width=350, height=300)
+    p1.grid.grid_line_alpha = 0.3
+    p1.xaxis.axis_label = 'Date'
+    p1.yaxis.axis_label = 'Temperature'
+    for i in range(31):
+        temp_date.append(i+1)
+
+    # TEMPERATURE STOCK_CHART:
+    p1.line(temp_date, temp_read, color='red', legend=f'Temperature')
+    p1.legend.location = "top_left"
+    script, div = components(p1)
+
+
+
+
+
+
     context = {
-        'temperatures': get_list_or_404(Temperature)
+        'temperatures': get_list_or_404(Temperature),
+        'the_script': script,
+        'the_div': div,
     }
 
     return render(request, 'raspberry/monthly.html', context)
