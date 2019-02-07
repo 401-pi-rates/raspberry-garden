@@ -4,47 +4,44 @@
 
 {% block content %}
 
+<div class='weekly'>
+  <div class='weekly-title'>
+    <h3>Weekly Trend</h3>
+  </div>
 
-<div class='weekly-title'>
-  <h3>Weekly Trend</h3>
-</div>
+  <div class='weekly-table-1'>
+    <h5>Temperature</h5>
+    <table>
+      <tr>
+        <th><h4> Date </h4></th>
+        {% for temperature in temperatures %}
+          <th><h4>{{ temperature.date_added }}</h4></th>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th> <h4>Temp (F°) </h4></th>
+        {% for temperature in temperatures %}
+          <th><h4>{{ temperature.temperature }}°</h4></th>
+        {% endfor %}
+      </tr>
+    </table>
 
-<div class='weekly-table-1'>
-  <h5>Temperature</h5>
-  <table>
-    <tr>
-      <th><h4> Date </h4></th>
-      {% for temperature in temperatures %}
-        <th><h4>{{ temperature.date_added }}</h4></th>
-      {% endfor %}
-    </tr>
-    <tr>
-      <th> <h4>Temp (F°) </h4></th>
-      {% for temperature in temperatures %}
-        <th><h4>{{ temperature.temperature }}°</h4></th>
-      {% endfor %}
-    </tr>
-  </table>
-
-  <h5>WaterLevel</h5>
-  <table>
-    <tr>
-      <th><h4> Date </h4></th>
-      {% for result in waterlevel %}
-        <th><h4>{{ result.time_stamp }}</h4></th>
-      {% endfor %}
-    </tr>
-    <tr>
-      <th> <h4> Water Level </h4></th>
-      {% for result in waterlevel %}
-        <th><h4>{{ result.has_moisture }}</h4></th>
-      {% endfor %}
-    </tr>
-  </table>
-</div>
-
-<div class='weekly-table-2'>
-
+    <h5>WaterLevel</h5>
+    <table>
+      <tr>
+        <th><h4> Date </h4></th>
+        {% for result in waterlevel %}
+          <th><h4>{{ result.time_stamp }}</h4></th>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th> <h4> Water Level </h4></th>
+        {% for result in waterlevel %}
+          <th><h4>{{ result.has_moisture }}</h4></th>
+        {% endfor %}
+      </tr>
+    </table>
+  </div>
 </div>
 
 
