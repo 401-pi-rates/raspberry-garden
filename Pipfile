@@ -33,6 +33,7 @@ confusable_homoglyphs = "==3.2.0"
 Jinja2 = "==2.10"
 MarkupSafe = "==1.1.0"
 PyYAML = "==3.13"
+pytest = "*"
 
 [requires]
 python_version = "3.6"
