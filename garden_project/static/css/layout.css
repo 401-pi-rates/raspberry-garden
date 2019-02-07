@@ -10,6 +10,12 @@ body{
     grid-template-rows: 50px;
 }
 
+main{
+    border-style: outset;
+    border-width: 4px;
+    border-radius: 10px;
+}
+
 /* Top nav bar */
 
 nav{
@@ -37,96 +43,13 @@ header{
     grid-row-end: 2;
     background-color: rgb(221, 221, 157);
     border-style: outset;
-    border-width: 2px;
+    border-width: 4px;
+    border-radius: 10px;
 }
 
 .welcome{
     background-color: rgb(131, 163, 131);
-    /* border-style: outset;
-    border-width: 2px; */
-}
-
-.current-reading{
-    height: 400px;
-    padding: 65px 0px 0px 30%;
-    background-color: rgb(233, 235, 149);
-}
-
-.weekly{
-    display: grid;
-    grid-template-rows: 130px 400px;
-    background-color: rgb(219, 240, 203);
-    padding: 0 13px 0 13px;
-}
-
-.weekly-title{
-    grid-row-start: 1;
-    grid-row-end: 2;
-    line-height: 130px;
-}
-
-.weekly-table-1{
-    grid-row-start: 2;
-    grid-row-end: 3;
-}
-
-.monthly{
-    display: grid;
-    grid-template-rows: 130px 400px 450px;
-    background-color: rgb(219, 240, 203);
-    padding: 0 13px 0 13px;
-}
-
-.monthly-title{
-    grid-row-start: 1;
-    grid-row-end: 2;
-    line-height: 130px;
-}
-
-.monthly-temperature{
-    grid-row-start: 2;
-    grid-row-end: 3;
-}
-
-.monthly-temperature-table{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.monthly-water{
-    grid-row-start: 3;
-    grid-row-end: 4;
-}
-
-.monthly-water-table{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.monthly h5{
-    padding-left: 20%;
-}
-
-.login-form-container{
-    height: 420px;
-}
-
-.login-form-container form{
-    padding-top: 40px;
-}
-
-.registration-form-container{
-    height: 470px;
-}
-
-.registration-complete-container{
-    height: 420px;
-}
-
-.activation-complete-container{
-    height: 420px;
+    border-bottom: solid white 1px;
 }
 
 /* Welcome Msg: */
@@ -134,6 +57,7 @@ h2{
     text-align: center;
     padding: 20px 0px 30px 0px;
     font-family: 'Permanent Marker', cursive;
+    font-size: 20px;
 }
 
 /* Weely Trend: */
@@ -182,6 +106,95 @@ th, td{
     vertical-align: middle;
 }
 
+.current-reading{
+    height: 400px;
+    padding: 35% 0px 0px 30%;
+    background-color: rgb(233, 235, 149);
+}
+
+.current-reading h4{
+    font-size: 18px;
+}
+
+.weekly{
+    display: grid;
+    grid-template-rows: 120px 400px;
+    background-color: rgb(219, 240, 203);
+    padding: 0 13px 0 13px;
+}
+
+.weekly-title{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    line-height: 130px;
+}
+
+.weekly-table-1{
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.monthly{
+    display: grid;
+    grid-template-rows: 80px 400px 450px;
+    background-color: rgb(219, 240, 203);
+    padding: 0 13px 0 13px;
+}
+
+.monthly-title{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    line-height: 130px;
+}
+
+.monthly-temperature{
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.monthly-temperature-table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.monthly-water{
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.monthly-water-table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.monthly h5{
+    padding-left: 20%;
+}
+
+.login-form-container{
+    height: 420px;
+    padding-left: 20px;
+}
+
+.login-form-container form{
+    padding-top: 40px;
+}
+
+.registration-form-container{
+    height: 470px;
+}
+
+.registration-complete-container{
+    height: 420px;
+}
+
+.activation-complete-container{
+    height: 420px;
+}
+
+
 /* Desktop view: */
 @media (min-width: 500px) {
     body{
@@ -193,24 +206,3 @@ th, td{
         background-color: rgb(202, 158, 173);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
