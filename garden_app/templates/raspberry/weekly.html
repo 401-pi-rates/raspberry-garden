@@ -4,9 +4,13 @@
 
 {% block content %}
 
-<h3>Weekly Trend</h3>
-<div>
 
+<div class='weekly-title'>
+  <h3>Weekly Trend</h3>
+</div>
+
+<div class='weekly-table-1'>
+  <h5>Temperature</h5>
   <table>
     <tr>
       <th><h4> Date </h4></th>
@@ -17,10 +21,13 @@
     <tr>
       <th> <h4>Temp (F°) </h4></th>
       {% for temperature in temperatures %}
-        <th><h4>{{ temperature.temperature }}</h4></th>
+        <th><h4>{{ temperature.temperature }}°</h4></th>
       {% endfor %}
     </tr>
+  </table>
 
+  <h5>WaterLevel</h5>
+  <table>
     <tr>
       <th><h4> Date </h4></th>
       {% for result in waterlevel %}
@@ -33,23 +40,12 @@
         <th><h4>{{ result.has_moisture }}</h4></th>
       {% endfor %}
     </tr>
-
   </table>
 </div>
 
-
-<div>
-  <h3>Photo: </h3>
+<div class='weekly-table-2'>
 
 </div>
-
-
-
-
-
-
-
-
 
 
 {% endblock content %}

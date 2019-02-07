@@ -19,7 +19,7 @@ nav{
 nav li{
     float: right;
     color: #f2f2f2;
-    padding: 0px 5px 10px 10px;
+    padding: 13px 13px 0px 10px;
     font-size: 15px;
     font-family: 'Indie Flower', cursive;
 }
@@ -42,7 +42,7 @@ header{
 main{
     /* CSS Grid: */
     display: grid;
-    grid-template-rows: 50px 400px;
+    grid-template-rows: 50px 500px;
 }
 
 .welcome{
@@ -51,30 +51,40 @@ main{
     background-color: rgb(131, 163, 131);
 }
 
-.block{
+/* .block{
     grid-row-start: 2;
     grid-row-end: 3;
     background-color: rgb(197, 197, 169);
-}
+} */
 
 .block{
     /* CSS Grid: */
     display: grid;
-    grid-template-rows: 180px 180px;
+    grid-template-rows: 130px 300px 300px;
 }
 
 .current_reading{
     grid-row-start: 1;
-    grid-row-end: 2;
+    grid-row-end: 3;
     padding: 65px 0px 0px 30px;
     background-color: rgb(71, 121, 71);
 }
 
-.current_photo{
+.weekly-title{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    line-height: 130px;
+}
+
+.weekly-table-1{
     grid-row-start: 2;
     grid-row-end: 3;
-    background-color: rgb(113, 146, 82);
 }
+
+/* .weekly-table-2{
+    grid-row-start: 3;
+    grid-row-end: 4;
+} */
 
 /* Welcome Msg: */
 h2{
@@ -83,14 +93,29 @@ h2{
     font-family: 'Permanent Marker', cursive;
 }
 
-/* Current photo: */
+/* Weely Trend: */
 h3{
+    text-align: center;
     font-family: 'Indie Flower', cursive;
+    font-size: 20px;
+    vertical-align: middle;
 }
 
 /* Current Reading: */
 h4{
     font-family: 'Indie Flower', cursive;
+    padding-top: 12px;
+}
+
+h5{
+    font-family: 'Indie Flower', cursive;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+h6{
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
 }
 
 table{
@@ -117,7 +142,7 @@ th, td{
     }
 
     .current_reading{
-        padding: 7% 0px 0px 40%;
+        padding: 15% 0px 50% 40%;
         background-color: palevioletred;
     }
 }
