@@ -4,8 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_list_or_404, get_object_or_404
 
 import bokeh.plotting as bk
+from bokeh.plotting import figure
 from bokeh.embed import components
-from bokeh.layouts import gridplot
 from bokeh.models import HoverTool, Label, BoxZoomTool, PanTool, ZoomInTool, ZoomOutTool, ResetTool
 
 @login_required
@@ -57,7 +57,7 @@ def weekly_view(request):
 def monthly_view(request):
     """To render monthly_view with its content."""
 
-    # To populate temp_date and temp_read:
+    # TO POPULATE TEMP_DATE AND TEMP_READ:
     temps = Temperature.objects.all()
     temp_date = []
     temp_read = []
@@ -68,29 +68,16 @@ def monthly_view(request):
             temp_read.append(item.temperature)
             i += 1
 
-    # PLOTTING THE TEMPERATURE CHART
-    p1 = bk.figure(title=f'Temperature', x_axis_type="datetime", toolbar_location='above', width=350, height=300)
+    # TO PLOT TEMPERATURE STOCK_CHART
+    p1 = bk.figure(title=f'Temperature', x_axis_type="datetime", width=350, height=300)
     p1.grid.grid_line_alpha = 0.3
     p1.xaxis.axis_label = 'Date'
     p1.yaxis.axis_label = 'Temperature'
-    # for i in range(31):
-    #     temp_date.append(i+1)
-
     p1.line(temp_date, temp_read, color='red', legend=f'Temperature')
     p1.legend.location = "top_left"
     script_temperature, div_temperature = components(p1)
 
-    # To populate water_date and water_read:
-    # waters = Temperature.objects.all()
-    # water_date = []
-    # water_read = []
-    # j = 0
-    # for item in temps:
-    #     if item.date_added.date() not in water_date and i < 31:
-    #         water_date.append(item.date_added.date())
-    #         water_read.append(item.temperature)
-    #         j += 1
-
+    # TO POPULATE WATER_DATE AND WATER_READ:
     waters = SoilMoisture.objects.all()
     water_date = []
     water_read = []
@@ -102,17 +89,14 @@ def monthly_view(request):
                 if waters[i].has_moisture == 'True':
                     water_read[i] = 1
 
-    # PLOTTING THE WATER CHART
-    p2 = bk.figure(title=f'WaterLevel', x_axis_type="datetime", toolbar_location='above', width=350, height=300)
-    p2.grid.grid_line_alpha = 0.3
-    p2.xaxis.axis_label = 'Date'
-    p2.yaxis.axis_label = 'WaterLevel'
-    for i in range(31):
-        temp_date.append(i+1)
+    # TO PLOT WATER IRIS_CHART
+    p3 = figure(title="WaterLevel", x_axis_type="datetime", width=350, height=300)
+    p3.xaxis.axis_label = 'Date'
+    p3.yaxis.axis_label = 'WaterLevel'
 
-    p2.line(water_date, water_read, color='blue', legend=f'WaterLevel')
-    p2.legend.location = "top_left"
-    script_water, div_water = components(p2)
+    p3.circle(water_date, water_read, color='blue', fill_alpha=0.2, size=10)
+
+    script_water, div_water = components(p3)
 
     context = {
         'temperatures': get_list_or_404(Temperature),

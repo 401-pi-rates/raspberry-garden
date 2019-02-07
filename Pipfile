@@ -42,6 +42,7 @@ Jinja2 = "==2.10"
 MarkupSafe = "==1.1.0"
 Pillow = "==5.4.1"
 PyYAML = "==3.13"
+pytest = "*"
 
 [requires]
 python_version = "3.6"
