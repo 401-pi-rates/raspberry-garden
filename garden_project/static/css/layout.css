@@ -1,7 +1,7 @@
 /* Mobile-view first */
 
 body{
-    background-color: pink;
+    /* background-color: pink; */
     margin-top: 10px;
     margin-left: 5%;
     margin-right: 5%;
@@ -36,21 +36,27 @@ header{
     grid-row-start: 1;
     grid-row-end: 2;
     background-color: rgb(221, 221, 157);
+    border-style: outset;
+    border-width: 2px;
 }
 
 .welcome{
     background-color: rgb(131, 163, 131);
+    /* border-style: outset;
+    border-width: 2px; */
 }
 
 .current-reading{
-    height: 300px;
-    padding: 65px 0px 0px 30px;
-    background-color: rgb(71, 121, 71);
+    height: 400px;
+    padding: 65px 0px 0px 30%;
+    background-color: rgb(233, 235, 149);
 }
 
 .weekly{
     display: grid;
     grid-template-rows: 130px 400px;
+    background-color: rgb(219, 240, 203);
+    padding: 0 13px 0 13px;
 }
 
 .weekly-title{
@@ -67,6 +73,8 @@ header{
 .monthly{
     display: grid;
     grid-template-rows: 130px 400px 450px;
+    background-color: rgb(219, 240, 203);
+    padding: 0 13px 0 13px;
 }
 
 .monthly-title{
@@ -101,13 +109,16 @@ header{
     padding-left: 20%;
 }
 
-
 .login-form-container{
     height: 420px;
 }
 
 .login-form-container form{
     padding-top: 40px;
+}
+
+.registration-form-container{
+    height: 470px;
 }
 
 .registration-complete-container{
@@ -146,17 +157,17 @@ h5{
 }
 
 h6{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 12px;
 }
 
 p{
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Montserrat', sans-serif;
     padding-top: 12px;
 }
 
 li, input{
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Montserrat', sans-serif;
     padding-top: 12px;
 }
 
@@ -179,7 +190,7 @@ th, td{
 
     .current-reading{
         padding: 18% 0px 0px 40%;
-        background-color: palevioletred;
+        background-color: rgb(202, 158, 173);
     }
 }
 

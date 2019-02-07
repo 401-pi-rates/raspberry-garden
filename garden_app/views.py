@@ -73,7 +73,7 @@ def monthly_view(request):
     p1.grid.grid_line_alpha = 0.3
     p1.xaxis.axis_label = 'Date'
     p1.yaxis.axis_label = 'Temperature'
-    p1.line(temp_date, temp_read, color='red', legend=f'Temperature')
+    p1.line(temp_date, temp_read, color='red')
     p1.legend.location = "top_left"
     script_temperature, div_temperature = components(p1)
 
