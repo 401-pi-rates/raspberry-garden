@@ -5,7 +5,7 @@ from django.utils import timezone
 class SoilMoisture(models.Model):
     """
     """
-    has_moisture = models.CharField(max_length=180)
+    has_moisture = models.BooleanField()
     # time_stamp = models.DateTimeField(auto_now_add=True, blank=True)
     time_stamp = models.DateTimeField(default=timezone.now)
 
