@@ -73,17 +73,18 @@ def monthly_view(request):
     p1.grid.grid_line_alpha = 0.3
     p1.xaxis.axis_label = 'Date'
     p1.yaxis.axis_label = 'Temperature'
-    # temp_date = []
-    # temp_read = [42, 31, 32, 35, 43]
     for i in range(31):
         temp_date.append(i+1)
 
-    # CHART LAYOUT
+    # TEMPERATURE STOCK_CHART:
     p1.line(temp_date, temp_read, color='red', legend=f'Temperature')
-
     p1.legend.location = "top_left"
-
     script, div = components(p1)
+
+
+
+
+
 
     context = {
         'temperatures': get_list_or_404(Temperature),
