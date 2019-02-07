@@ -80,10 +80,27 @@ header{
     grid-row-end: 3;
 }
 
+.monthly-temperature-table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .monthly-water{
     grid-row-start: 3;
     grid-row-end: 4;
 }
+
+.monthly-water-table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.monthly h5{
+    padding-left: 20%;
+}
+
 
 .login-form-container{
     height: 420px;
