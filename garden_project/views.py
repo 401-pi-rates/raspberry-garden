@@ -11,7 +11,6 @@ from django.shortcuts import render, get_list_or_404, get_object_or_404
 def home_view(request):
     """To control views for the project django_lender."""
     water = SoilMoisture.objects.all().last()
-    print(water.has_moisture)
     if (water.has_moisture):
         read = 'Has Water'
     else:
