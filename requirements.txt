@@ -11,6 +11,8 @@ django-registration==3.0
 djangorestframework==3.9.1
 docker==3.7.0
 docker-pycreds==0.4.0
+factory-boy==2.11.1
+Faker==1.0.2
 idna==2.8
 Jinja2==2.10
 MarkupSafe==1.1.0
@@ -29,6 +31,7 @@ pytz==2018.9
 PyYAML==3.13
 requests==2.21.0
 six==1.12.0
+text-unidecode==1.2
 tornado==5.1.1
 urllib3==1.24.1
 websocket-client==0.54.0
