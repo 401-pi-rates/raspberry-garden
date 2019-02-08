@@ -37,10 +37,11 @@ def weekly_view(request):
     for i in range(len(waters)):
         if waters[i].time_stamp.date() not in water_date and i < 7:
             water_date.append(waters[i].time_stamp.date())
-            water_read.append('Dry')
-            if water_read[i] == 'Dry':
-                if (waters[i].has_moisture):
-                    water_read[i] = 'Has Water'
+            if (waters[i].has_moisture):
+                water_read.append('Has Water')
+            else:
+                water_read.append('Dry')
+
 
     for i in range(len(water_date)):
         obj = {'time_stamp': water_date[i], 'has_moisture': water_read[i]}
