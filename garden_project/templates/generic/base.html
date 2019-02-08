@@ -7,9 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta charset="utf-8"/>
-  <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Indie+Flower|Permanent+Marker" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Indie+Flower|Permanent+Marker|Montserrat|Roboto" rel="stylesheet">
   <link rel="stylesheet" href="{% static "css/reset.css" %}">
   <link rel="stylesheet" href="{% static "css/layout.css" %}">
+  <link rel="stylesheet" href="{% static "css/module.css" %}">
+
+  <link href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.5.min.css" rel="stylesheet">
+  <link href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.0.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.14.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.14.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.12.14.min.css" type="text/css">
+
   <title>{% block title %}{% endblock %} Raspberry Garden</title>
 </head>
 <body>
@@ -34,7 +42,10 @@
   <main>
     <div class='welcome'>
       {% if user.is_authenticated %}
-      <h2>Welcome to Raspberry Garden, {{ user.username }}!</h2>
+      <div class='welcome-center'>
+        <img src="{% static "assets/garden.png" %}" alt="icon" width="30" height="30">
+        <h2>Welcome to Raspberry Garden, {{ user.username }}!</h2>
+      </div>
       {% else %}
       <h2>This is Raspberry Garden! Please sign up or log in.</h2>
       {% endif %}
@@ -45,6 +56,6 @@
       {% endblock content%}
     </div>
   </main>
-  <footer></footer>
+  <footer><h6>©2019PiRate</h6></footer>
 </body>
 </html>

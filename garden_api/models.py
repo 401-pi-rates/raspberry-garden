@@ -1,12 +1,13 @@
 from django.db import models
+from django.utils import timezone
 
 
 class SoilMoisture(models.Model):
     """
     """
-    has_moisture = models.CharField(max_length=180)
-    time_stamp = models.DateTimeField(auto_now_add=True, blank=True)
-
+    has_moisture = models.BooleanField()
+    # time_stamp = models.DateTimeField(auto_now_add=True, blank=True)
+    time_stamp = models.DateTimeField(default=timezone.now)
 
     def __repr__(self):
         return '{}'.format(self.time_stamp)

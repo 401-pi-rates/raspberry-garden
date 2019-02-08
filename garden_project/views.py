@@ -10,10 +10,15 @@ from django.shortcuts import render, get_list_or_404, get_object_or_404
 @login_required
 def home_view(request):
     """To control views for the project django_lender."""
-
+    water = SoilMoisture.objects.all().last()
+    if (water.has_moisture):
+        read = 'Has Water'
+    else:
+        read = 'Dry'
+    print('READ = ', read)
     context = {
         'temperature': get_list_or_404(Temperature)[0],
-        'waterlevel': get_list_or_404(SoilMoisture)[0],
+        # 'waterlevel': get_list_or_404(SoilMoisture)[-1],
+        'waterlevel': read,
     }
-
     return render(request, 'generic/home.html', context)

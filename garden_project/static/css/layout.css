@@ -1,17 +1,22 @@
 /* Mobile-view first */
 
 body{
-    background-color: pink;
+    /* background-color: pink; */
     margin-top: 10px;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: auto;
+    margin-right: auto;
     /* CSS Grid: */
     display: grid;
     grid-template-rows: 50px;
 }
 
-/* Top nav bar */
+main{
+    border-style: outset;
+    border-width: 4px;
+    border-radius: 10px;
+}
 
+/* Top nav bar */
 nav{
     overflow: hidden;
 }
@@ -19,7 +24,7 @@ nav{
 nav li{
     float: right;
     color: #f2f2f2;
-    padding: 0px 5px 10px 10px;
+    padding: 13px 13px 0px 10px;
     font-size: 15px;
     font-family: 'Indie Flower', cursive;
 }
@@ -36,61 +41,73 @@ header{
     grid-row-start: 1;
     grid-row-end: 2;
     background-color: rgb(221, 221, 157);
-}
-
-/* Grid: Welcome Div */
-main{
-    /* CSS Grid: */
-    display: grid;
-    grid-template-rows: 50px 400px;
+    border-style: outset;
+    border-width: 4px;
+    border-radius: 10px;
 }
 
 .welcome{
-    grid-row-start: 1;
-    grid-row-end: 2;
     background-color: rgb(131, 163, 131);
+    border-bottom: solid white 1px;
 }
 
-.block{
-    grid-row-start: 2;
-    grid-row-end: 3;
-    background-color: rgb(197, 197, 169);
+.welcome img{
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 5px;
 }
 
-.block{
-    /* CSS Grid: */
-    display: grid;
-    grid-template-rows: 180px 180px;
+.welcome h2{
+    display: inline-block;
 }
 
-.current_reading{
-    grid-row-start: 1;
-    grid-row-end: 2;
-    padding: 65px 0px 0px 30px;
-    background-color: rgb(71, 121, 71);
-}
-
-.current_photo{
-    grid-row-start: 2;
-    grid-row-end: 3;
-    background-color: rgb(113, 146, 82);
+.welcome-center{
+    width: 390px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Welcome Msg: */
 h2{
-    text-align: center;
+    /* text-align: center; */
     padding: 20px 0px 30px 0px;
     font-family: 'Permanent Marker', cursive;
+    font-size: 18px;
 }
 
-/* Current photo: */
+/* Weely Trend: */
 h3{
+    text-align: center;
     font-family: 'Indie Flower', cursive;
+    font-size: 20px;
+    vertical-align: middle;
 }
 
 /* Current Reading: */
 h4{
     font-family: 'Indie Flower', cursive;
+    padding-top: 12px;
+}
+
+h5{
+    font-family: 'Indie Flower', cursive;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+h6{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+}
+
+p{
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 12px;
+}
+
+li, input{
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 12px;
 }
 
 table{
@@ -101,13 +118,102 @@ th, td{
     border: 1px solid black;
     width: 120px;
     height: 25px;
+    vertical-align: middle;
 }
 
+.current-reading{
+    height: 400px;
+    padding: 35% 0px 0px 30%;
+    background-color: rgb(235, 236, 173);
+}
 
+.current-reading h4{
+    font-size: 18px;
+}
 
+.weekly{
+    display: grid;
+    grid-template-rows: 120px 450px;
+    background-color: rgb(219, 240, 203);
+    padding: 0 13px 0 13px;
+}
 
+.weekly-title{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    line-height: 130px;
+}
 
+.weekly-table-1{
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
 
+.monthly{
+    display: grid;
+    grid-template-rows: 80px 400px 450px;
+    background-color: rgb(219, 240, 203);
+    padding: 0 13px 0 13px;
+}
+
+.monthly-title{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    line-height: 130px;
+}
+
+.monthly-temperature{
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.monthly-temperature-table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.monthly-water{
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.monthly-water-table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.monthly h5{
+    padding-left: 20%;
+}
+
+.bk-root{
+    border-style: groove;
+    border-width: 5px;
+    border-radius: 3px;
+}
+
+.login-form-container{
+    height: 420px;
+    padding-left: 20px;
+}
+
+.login-form-container form{
+    padding-top: 40px;
+}
+
+.registration-form-container{
+    height: 470px;
+}
+
+.registration-complete-container{
+    height: 420px;
+}
+
+.activation-complete-container{
+    height: 420px;
+}
 
 /* Desktop view: */
 @media (min-width: 500px) {
@@ -115,29 +221,8 @@ th, td{
         background-color: aliceblue;
     }
 
-    .current_reading{
-        padding: 7% 0px 0px 40%;
-        background-color: palevioletred;
+    .current-reading{
+        padding: 18% 0px 0px 40%;
+        background-color: rgb(202, 158, 173);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
