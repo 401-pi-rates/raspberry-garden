@@ -27,6 +27,7 @@ def weekly_view(request):
     for i in range(len(temp_date)):
         obj = {'date_added': temp_date[i], 'temperature': temp_read[i]}
         temp_list.append(obj)
+    temp_list.sort(key=lambda x: x['date_added'], reverse=True)
 
     # To populate water_list:
     waters = SoilMoisture.objects.all()
@@ -44,6 +45,7 @@ def weekly_view(request):
     for i in range(len(water_date)):
         obj = {'time_stamp': water_date[i], 'has_moisture': water_read[i]}
         water_list.append(obj)
+    water_list.sort(key=lambda x: x['time_stamp'], reverse=True)
 
     context = {
         # 'temperatures': get_list_or_404(Temperature),
