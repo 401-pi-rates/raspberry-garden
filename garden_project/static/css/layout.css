@@ -188,6 +188,12 @@ th, td{
     padding-left: 20%;
 }
 
+.bk-root{
+    border-style: groove;
+    border-width: 5px;
+    border-radius: 3px;
+}
+
 .login-form-container{
     height: 420px;
     padding-left: 20px;
