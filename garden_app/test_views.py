@@ -12,7 +12,7 @@ class TestGardenViews(TestCase):
     def test_denied_if_no_login(self):
         res = self.c.get('', follow=True)
         self.assertEqual(res.status_code, 200)
-        self.assertIn(b'class="login-form container"', res.content)
+        self.assertIn(b'This is Raspberry Garden! Please sign up or log in.', res.content)
 
     def test_view_list_when_logged_in(self):
         self.c.login(
