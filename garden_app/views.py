@@ -32,7 +32,8 @@ def weekly_view(request):
 
     # To select 7 entries from the sorted list:
     for i in range(7):
-        temp_list_7.append(temp_list[i])
+        if len(temp_list_7) < i+1:
+            temp_list_7.append(temp_list[i])
 
     # Add unique entries to water_date, water_read, and water_list:
     waters = SoilMoisture.objects.all()
@@ -54,7 +55,8 @@ def weekly_view(request):
 
     # To select 7 entries from the sorted list:
     for i in range(7):
-        water_list_7.append(water_list[i])
+        if len(water_list) < i+1:
+            water_list_7.append(water_list[i])
 
     context = {
         # 'temperatures': get_list_or_404(Temperature),
@@ -75,6 +77,8 @@ def monthly_view(request):
     temp_date = []
     temp_read = []
     i = 0
+
+    # To append all entries in list:
     for item in temps:
         if item.date_added.date() not in temp_date and i < 31:
             temp_date.append(item.date_added.date())
