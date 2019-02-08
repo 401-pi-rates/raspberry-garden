@@ -18,41 +18,49 @@ def weekly_view(request):
     temp_date = []
     temp_read = []
     temp_list = []
-    i = 0
+    temp_list_7 = []
+
+    # Add unique entries to temp_date, temp_read, and temp_list:
     for item in temps:
-        if item.date_added.date() not in temp_date and i < 7:
+        if item.date_added.date() not in temp_date:
             temp_date.append(item.date_added.date())
             temp_read.append(item.temperature)
-            i += 1
     for i in range(len(temp_date)):
         obj = {'date_added': temp_date[i], 'temperature': temp_read[i]}
         temp_list.append(obj)
     temp_list.sort(key=lambda x: x['date_added'], reverse=True)
 
-    # To populate water_list:
+    # To select 7 entries from the sorted list:
+    for i in range(7):
+        temp_list_7.append(temp_list[i])
+
+    # Add unique entries to water_date, water_read, and water_list:
     waters = SoilMoisture.objects.all()
     water_date = []
     water_read = []
     water_list = []
+    water_list_7 = []
     for i in range(len(waters)):
-        if waters[i].time_stamp.date() not in water_date and i < 7:
+        if waters[i].time_stamp.date() not in water_date:
             water_date.append(waters[i].time_stamp.date())
             if (waters[i].has_moisture):
                 water_read.append('Has Water')
             else:
                 water_read.append('Dry')
-
-
     for i in range(len(water_date)):
         obj = {'time_stamp': water_date[i], 'has_moisture': water_read[i]}
         water_list.append(obj)
     water_list.sort(key=lambda x: x['time_stamp'], reverse=True)
 
+    # To select 7 entries from the sorted list:
+    for i in range(7):
+        water_list_7.append(water_list[i])
+
     context = {
         # 'temperatures': get_list_or_404(Temperature),
-        'temperatures': temp_list,
+        'temperatures': temp_list_7,
         # 'waterlevel': get_list_or_404(SoilMoisture),
-        'waterlevel': water_list,
+        'waterlevel': water_list_7,
     }
 
     return render(request, 'raspberry/weekly.html', context)
