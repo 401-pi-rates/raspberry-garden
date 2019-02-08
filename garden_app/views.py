@@ -8,6 +8,7 @@ from bokeh.plotting import figure
 from bokeh.embed import components
 from bokeh.models import HoverTool, Label, BoxZoomTool, PanTool, ZoomInTool, ZoomOutTool, ResetTool
 
+
 @login_required
 def weekly_view(request):
     """To render weekly_view with its content."""
