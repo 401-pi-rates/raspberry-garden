@@ -86,7 +86,7 @@ def monthly_view(request):
     water_date = []
     water_read = []
     for i in range(len(waters)):
-        if waters[i].time_stamp.date() not in water_date and i < 7:
+        if waters[i].time_stamp.date() not in water_date and i < 31:
             water_date.append(waters[i].time_stamp.date())
             water_read.append(0)
             if water_read[i] == 0:
