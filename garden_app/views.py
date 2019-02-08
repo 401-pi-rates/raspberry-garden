@@ -88,7 +88,7 @@ def monthly_view(request):
             water_date.append(waters[i].time_stamp.date())
             water_read.append(0)
             if water_read[i] == 0:
-                if waters[i].has_moisture == 'True':
+                if (waters[i].has_moisture):
                     water_read[i] = 1
 
     # TO PLOT WATER IRIS_CHART
