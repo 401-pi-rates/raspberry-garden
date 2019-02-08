@@ -133,7 +133,7 @@ th, td{
 
 .weekly{
     display: grid;
-    grid-template-rows: 120px 400px;
+    grid-template-rows: 120px 450px;
     background-color: rgb(219, 240, 203);
     padding: 0 13px 0 13px;
 }
