@@ -18,40 +18,51 @@ def weekly_view(request):
     temp_date = []
     temp_read = []
     temp_list = []
-    i = 0
+
+    # Add unique entries to temp_date, temp_read, and temp_list:
     for item in temps:
-        if item.date_added.date() not in temp_date and i < 7:
+        if item.date_added.date() not in temp_date:
             temp_date.append(item.date_added.date())
             temp_read.append(item.temperature)
-            i += 1
     for i in range(len(temp_date)):
         obj = {'date_added': temp_date[i], 'temperature': temp_read[i]}
         temp_list.append(obj)
     temp_list.sort(key=lambda x: x['date_added'], reverse=True)
 
-    # To populate water_list:
+    # To select 7 entries from the sorted list:
+    temp_list_7 = []
+    for i in range(7):
+        if len(temp_list) >= i+1:
+            temp_list_7.append(temp_list[i])
+
+    # Add unique entries to water_date, water_read, and water_list:
     waters = SoilMoisture.objects.all()
     water_date = []
     water_read = []
     water_list = []
     for i in range(len(waters)):
-        if waters[i].time_stamp.date() not in water_date and i < 7:
+        if waters[i].time_stamp.date() not in water_date:
             water_date.append(waters[i].time_stamp.date())
-            water_read.append('Dry')
-            if water_read[i] == 'Dry':
-                if (waters[i].has_moisture):
-                    water_read[i] = 'Has Water'
-
+            if (waters[i].has_moisture):
+                water_read.append('Has Water')
+            else:
+                water_read.append('Dry')
     for i in range(len(water_date)):
         obj = {'time_stamp': water_date[i], 'has_moisture': water_read[i]}
         water_list.append(obj)
     water_list.sort(key=lambda x: x['time_stamp'], reverse=True)
 
+    # To select 7 entries from the sorted list:
+    water_list_7 = []
+    for i in range(7):
+        if len(water_list) >= i+1:
+            water_list_7.append(water_list[i])
+
     context = {
         # 'temperatures': get_list_or_404(Temperature),
-        'temperatures': temp_list,
+        'temperatures': temp_list_7,
         # 'waterlevel': get_list_or_404(SoilMoisture),
-        'waterlevel': water_list,
+        'waterlevel': water_list_7,
     }
 
     return render(request, 'raspberry/weekly.html', context)
@@ -65,40 +76,77 @@ def monthly_view(request):
     temps = Temperature.objects.all()
     temp_date = []
     temp_read = []
+    temp_list = []
     i = 0
+
+    # To append all entries in temp_list, in sorted sequence:
     for item in temps:
-        if item.date_added.date() not in temp_date and i < 31:
+        if item.date_added.date() not in temp_date:
             temp_date.append(item.date_added.date())
             temp_read.append(item.temperature)
-            i += 1
+    for i in range(len(temp_date)):
+        obj = {'date_added': temp_date[i], 'temperature': temp_read[i]}
+        temp_list.append(obj)
+    temp_list.sort(key=lambda x: x['date_added'], reverse=True)
+
+    # To select 30 entries from the sorted list:
+    temp_list_30 = []
+    for i in range(30):
+        if len(temp_list) >= i+1:
+            temp_list_30.append(temp_list[i])
+
+    # To save object key values to lists:
+    temp_date_graph = []
+    temp_read_graph = []
+    for i in range(len(temp_list_30)):
+        temp_date_graph.append(temp_list_30[i]['date_added'])
+        temp_read_graph.append(temp_list_30[i]['temperature'])
 
     # TO PLOT TEMPERATURE STOCK_CHART
     p1 = bk.figure(title=f'Temperature', x_axis_type="datetime", width=350, height=300)
     p1.grid.grid_line_alpha = 0.3
     p1.xaxis.axis_label = 'Date'
     p1.yaxis.axis_label = 'Temperature'
-    p1.line(temp_date, temp_read, color='red')
+    p1.line(temp_date_graph, temp_read_graph, color='red')
     p1.legend.location = "top_left"
     script_temperature, div_temperature = components(p1)
 
     # TO POPULATE WATER_DATE AND WATER_READ:
+    # To append all entries in water_list, in sorted sequence:
     waters = SoilMoisture.objects.all()
     water_date = []
     water_read = []
+    water_list = []
     for i in range(len(waters)):
-        if waters[i].time_stamp.date() not in water_date and i < 7:
+        if waters[i].time_stamp.date() not in water_date:
             water_date.append(waters[i].time_stamp.date())
             water_read.append(0)
-            if water_read[i] == 0:
-                if (waters[i].has_moisture):
-                    water_read[i] = 1
+            if (waters[i].has_moisture):
+                water_read[i] = 1
+    for i in range(len(water_date)):
+        obj = {'time_stamp': water_date[i], 'has_moisture': water_read[i]}
+        water_list.append(obj)
+    water_list.sort(key=lambda x: x['time_stamp'], reverse=True)
+
+    # To select 30 entries from the sorted list:
+    water_list_30 = []
+    for i in range(30):
+        if len(water_list) >= i+1:
+            water_list_30.append(water_list[i])
+
+    # To save object key values to lists:
+    water_date_graph = []
+    water_read_graph = []
+    for i in range(len(water_list_30)):
+        water_date_graph.append(water_list_30[i]['time_stamp'])
+        water_read_graph.append(water_list_30[i]['has_moisture'])
 
     # TO PLOT WATER IRIS_CHART
     p3 = figure(title="WaterLevel", x_axis_type="datetime", width=350, height=300)
     p3.xaxis.axis_label = 'Date'
     p3.yaxis.axis_label = 'WaterLevel'
 
-    p3.circle(water_date, water_read, color='blue', fill_alpha=0.2, size=10)
+    p3.circle(water_date_graph, water_read_graph, color='blue', fill_alpha=0.2, size=10)
 
     script_water, div_water = components(p3)
 
