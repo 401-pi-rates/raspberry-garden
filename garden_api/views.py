@@ -21,10 +21,16 @@ class UserApiView(generics.RetrieveAPIView):
 
 
 class SoilMoistureApiView(generics.CreateAPIView):
+    """
+    API view for the input RPi data.
+    """
     serializer_class = SoilMoistureSerializer
 
 
 class SoilMoistureDetailApiView(generics.RetrieveAPIView):
+    """
+    API view for the input RPi data.  Used to test and validate the endpoint for the RPi.
+    """
     serializer_class = SoilMoistureSerializer
 
     def get_queryset(self):

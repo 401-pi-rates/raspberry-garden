@@ -4,6 +4,7 @@ from django.utils import timezone
 
 class SoilMoisture(models.Model):
     """
+    Model for the soil moisture data that comes from the RPi.
     """
     has_moisture = models.BooleanField()
     # time_stamp = models.DateTimeField(auto_now_add=True, blank=True)
