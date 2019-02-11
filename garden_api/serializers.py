@@ -28,6 +28,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 class SoilMoistureSerializer(serializers.ModelSerializer):
     """
+    Class that serializes the incoming input data and uses the SoilMoisutre model to push it to the db.
     """
     class Meta:
         """
